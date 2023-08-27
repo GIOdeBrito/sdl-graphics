@@ -1,0 +1,34 @@
+
+Finalmente após anos de luta e raiva, finalmente consegui
+configurar o SDL2 no CodeBlocks.
+
+Atenta aos passos:
+
+# SDL no CodeBlocks
+
+1 - Baixe os headers do SDL2 no github, o nome deverá ser mais ou menos assim: SDL2-devel-[versão]-mingw.zip
+2 - Abra o zip e extraia os arquivos
+3 - Veja que há duas notáveis pastas dentro do diretório extraido: i686-w64-mingw32 e x86_64-w64-mingw32
+4 - Compare qual delas também está contida no seu MinGW
+5 - Crie um novo projeto no CodeBlocks
+6 - Vá em Project > Properties > Project's build target
+7 - Vá em Search directories > Compiler > Add
+8 - Adicione a pasta include de uma das pastas, anteriormente mencionadas, do SDL2
+Ex: x86_64-w64-mingw32 > include
+9 - Vá em Linker e desta vez adicione a pasta lib do SDL2
+10 - Em seguida vá em Linker settings
+11 - Copie e cole em "Other linker options": -lmingw32 -lSDL2main -lSDL2
+12 - Não esqueça de adicionar a DLL SDL2.dll na pasta onde está localizado o main.c
+13 - Faça o teste de Build, se avacalhar tente repetir os passos. Se persistir... aí você mamou.
+
+# SDL IMG
+
+No caso da biblioteca de imagens, o esquema é o mesmo:
+
+1 - Baixe os headers e jogue-os na pasta do SDL2.
+2 - Repita o passos anteriores 10 e 11
+3 - Porém em vez de adiocionar tudo aqui, apenas copie e cole isto logo ao lado do que foi adicionado: -lSDL2_image
+
+
+
+
